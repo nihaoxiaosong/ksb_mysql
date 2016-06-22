@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		
 		<!--  jquery -->
 		<script src="<@s.url '/plugin/jquery/jquery-1.12.3.min.js'/>" type="text/javascript"></script>
 		
