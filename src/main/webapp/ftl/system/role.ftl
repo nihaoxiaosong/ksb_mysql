@@ -5,11 +5,12 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<!--  jquery -->
-		<script src="../../plugin/jquery/jquery-1.12.3.min.js"></script>
+		<script src="<@s.url '/plugin/jquery/jquery-1.12.3.min.js'/>" type="text/javascript"></script>
+		
 		<!-- bootstrap -->
-		<link rel="stylesheet" href="../../plugin/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../../plugin/bootstrap/css/bootstrap-theme.min.css">
-		<script src="../../plugin/bootstrap/js/bootstrap.min.js"></script>
+		<link href="<@s.url '/plugin/bootstrap/css/bootstrap.min.css'/>" type="text/css" rel="stylesheet"/>
+		<link href="<@s.url '/plugin/bootstrap/css/bootstrap-theme.min.css'/>" type="text/css" rel="stylesheet"/>
+		<script src="<@s.url '/plugin/bootstrap/js/bootstrap.min.js'/>" type="text/javascript"></script>
 	</head>
 
 	<body>
