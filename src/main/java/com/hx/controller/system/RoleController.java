@@ -19,11 +19,11 @@ public class RoleController extends BaseController {
 	private RoleService roleService;
 	
 	@RequestMapping("/list")
-	public ModelAndView list(@RequestParam(value="keyWord")String keyWord){
+	public ModelAndView list(@RequestParam(defaultValue = "")String keyWord){
 		ModelAndView mav = new ModelAndView();
 		List<Role> list = roleService.findByKeyWord(keyWord);
 		mav.addObject("roleList",list);
-		mav.setViewName("/role/role");
+		mav.setViewName("/system/role");
 		return mav;
 	}
 }
