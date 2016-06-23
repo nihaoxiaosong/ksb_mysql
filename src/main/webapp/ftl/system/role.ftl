@@ -90,11 +90,11 @@
 				<form class="form-inline">
 					<div class="form-group">
 						<label for="keyWord">角色名称:</label>
-						<input class="form-control" type="text" id="keyWord" placeholder="请输入角色关键字" />
+						<input class="form-control" type="text" id="keyWord" name="keyWord" value="${keyWord!}" placeholder="请输入角色关键字" />
 					</div>
 					<div class="form-group">
-						<input type="button" class="btn btn-info" value="查询" />
-						<input type="button" class="btn btn-warning" value="重置" />
+						<input type="button" class="btn btn-info" id="query" value="查询" />
+						<input type="button" class="btn btn-warning" id="reset" value="重置" />
 					</div>
 				</form>
 			</div>
@@ -154,7 +154,7 @@
 			
 			
 			<div class="modal" id="delete_modal"  tabindex="-1">
-			    <div class="modal-dialog">
+			    <div class="modal-dialog modal-sm">
 			    	<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -167,9 +167,9 @@
 							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 							<button type="button" class="btn btn-primary">删除</button>
 						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
+					</div>
+				</div>
+			</div>
 			
 		</div>
 	</body>

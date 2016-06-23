@@ -28,6 +28,7 @@ public class RoleController extends BaseController {
 		PageParam pageParam = new PageParam(Integer.parseInt(page), PAGE_ZISE);
 		Pager<Role> rolePager = roleService.findByKeyWord(keyWord, pageParam);
 		mav.addObject("rolePager",rolePager);
+		mav.addObject("keyWord", keyWord);
 		mav.setViewName("/system/role");
 		return mav;
 	}
