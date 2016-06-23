@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.hx.dao.system.RoleDao;
 import com.hx.model.common.PageParam;
-import com.hx.model.common.Pager;
 import com.hx.model.system.Role;
 import com.hx.service.system.RoleService;
 
@@ -23,11 +22,15 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public Pager<Role> findByKeyWord(String keyWord, PageParam pageParam) {
-		int totalCount = roleDao.count(keyWord);
+	public List<Role> findByKeyWord(String keyWord, PageParam pageParam) {
 		List<Role> list = roleDao.findByKeyWord(keyWord, pageParam);
-		Pager<Role> rolePager = new Pager<Role>(totalCount, list);
-		return rolePager;
+		return list;
+	}
+
+	@Override
+	public int count(String keyWord) {
+		int count = roleDao.count(keyWord);
+		return count;
 	}
 
 }

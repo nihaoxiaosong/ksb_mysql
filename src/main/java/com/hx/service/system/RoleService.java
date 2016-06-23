@@ -1,7 +1,8 @@
 package com.hx.service.system;
 
+import java.util.List;
+
 import com.hx.model.common.PageParam;
-import com.hx.model.common.Pager;
 import com.hx.model.system.Role;
 
 public interface RoleService {
@@ -18,5 +19,12 @@ public interface RoleService {
 	 * @param pageParam
 	 * @return
 	 */
-	public Pager<Role> findByKeyWord(String keyWord, PageParam pageParam);
+	public List<Role> findByKeyWord(String keyWord, PageParam pageParam);
+	
+	/**
+	 * 计数
+	 * @param keyWord
+	 * @return
+	 */
+	public int count(String keyWord);
 }

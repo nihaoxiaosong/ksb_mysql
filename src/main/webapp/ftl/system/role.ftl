@@ -108,8 +108,8 @@
 						<td><label>操作</label></td>
 					</tr>
 					
-					<#if  rolePager?? && rolePager.totalCount &gt; 0>
-						<#list rolePager.list as role>
+					<#if  roleList?? && roleList?size gt 0>
+						<#list roleList as role>
 							<tr>
 								<td>${role_index+1}</td>
 								<td>${role.code!}</td>
@@ -129,24 +129,7 @@
 			<div class="row" style="text-align:center;">
 				<nav>
 					<ul class="pagination">
-						<li>
-							<a href="#" aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span>
-							</a>
-						</li>
-						<li class="active"><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">...</a></li>
-						<li><a href="#">9</a></li>
-						<li><a href="#">10</a></li>
-						<li>
-							<a href="#" aria-label="Next">
-								<span aria-hidden="true">&raquo;</span>
-							</a>
-						</li>
-						<li><a href="#">上一页</a></li>
-						<li><a href="#">下一页</a></li>
+						${pageCode!}
 					</ul>
 				</nav>
 			</div>
