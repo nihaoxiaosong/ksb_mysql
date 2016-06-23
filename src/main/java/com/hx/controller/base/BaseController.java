@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 public class BaseController {
 	
+	public final int PAGE_ZISE = 10;
+	
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
 	protected HttpSession session;

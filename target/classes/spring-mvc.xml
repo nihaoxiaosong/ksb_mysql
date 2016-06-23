@@ -54,5 +54,6 @@
 
 	<mvc:default-servlet-handler />
 	<mvc:resources mapping="/plugin/**" location="/plugin/" />
+	<mvc:resources mapping="/js/**" location="/js/" />
 
 </beans>  

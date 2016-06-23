@@ -12,6 +12,8 @@
 		<link href="<@s.url '/plugin/bootstrap/css/bootstrap.min.css'/>" type="text/css" rel="stylesheet"/>
 		<link href="<@s.url '/plugin/bootstrap/css/bootstrap-theme.min.css'/>" type="text/css" rel="stylesheet"/>
 		<script src="<@s.url '/plugin/bootstrap/js/bootstrap.min.js'/>" type="text/javascript"></script>
+		
+		<script src="<@s.url '/js/system/role.js'/>" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -101,81 +103,27 @@
 				<table class="table table-hover">
 					<tr class="active">
 						<td><label>序号</label></td>
+						<td><label>角色编号</label></td>
 						<td><label>角色名称</label></td>
 						<td><label>操作</label></td>
 					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
-					<tr>
-						<td><label>1</label></td>
-						<td><label>系统管理员</label></td>
-						<td>
-							<input type="button" class="btn btn-info" value="修改" />
-							<input type="button" class="btn btn-warning" value="删除" />
-						</td>
-					</tr>
+					
+					<#if  rolePager?? && rolePager.totalCount &gt; 0>
+						<#list rolePager.list as role>
+							<tr>
+								<td>${role_index+1}</td>
+								<td>${role.code!}</td>
+								<td>${role.name!}</td>
+								<td>
+									<input type="button" class="btn btn-info" value="修改" />
+									<input type="button" name="delete_role" role_id="${role.id!}" class="btn btn-warning" value="删除" />
+								</td>
+							</tr>
+						</#list>
+					<#else>
+						<tr style="text-align:center;"><td colspan="10" style="padding:20px;">暂无记录！</td></tr>
+					</#if>
+					
 				</table>
 			</div>
 			<div class="row" style="text-align:center;">
@@ -202,6 +150,27 @@
 					</ul>
 				</nav>
 			</div>
+			
+			
+			
+			<div class="modal" id="delete_modal"  tabindex="-1">
+			    <div class="modal-dialog">
+			    	<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">提示</h4>
+						</div>
+						<div class="modal-body">
+							<p>是否确认删除?</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary">删除</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+			
 		</div>
 	</body>
 </html>

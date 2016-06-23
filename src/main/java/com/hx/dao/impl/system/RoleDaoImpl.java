@@ -11,6 +11,7 @@ import org.springframework.util.StringUtils;
 
 import com.hx.dao.base.BaseDao;
 import com.hx.dao.system.RoleDao;
+import com.hx.model.common.PageParam;
 import com.hx.model.system.Role;
 
 @Repository("roleDao")
@@ -18,18 +19,23 @@ public class RoleDaoImpl extends BaseDao implements RoleDao {
 
 	@Override
 	public void insert(Role role) {
-		String sql = "insert into role(id,code,name,enable) values(?,?,?,?)";
-		jdbcTemplate.update(sql, new Object[] { role.getId(), role.getClass(), role.getName(), role.getEnable() });
+		StringBuffer sql = new StringBuffer();
+		sql.append("insert into role(id,code,name,enable) values(?,?,?,?)");
+		jdbcTemplate.update(sql.toString(), new Object[] { role.getId(), role.getClass(), role.getName(), role.getEnable() });
 	}
 
 	@Override
-	public List<Role> findByKeyWord(String keyWord) {
-		String sql = "select id,code,name,enable from role where 1 = 1";
+	public List<Role> findByKeyWord(String keyWord, PageParam pageParam) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select id,code,name,enable from role where enable = 1 ");
 		if (!StringUtils.isEmpty(keyWord)) {
-			sql += " and name like '%" + keyWord + "%' ";
+			sql.append(" and name like '%" + keyWord + "%' ");
+		}
+		if(pageParam!=null){
+			sql.append(" limit "+pageParam.getStartIndex()+","+pageParam.getPageSize());
 		}
 		final List<Role> list = new ArrayList<Role>();
-		jdbcTemplate.query(sql, new Object[] {}, new RowCallbackHandler() {
+		jdbcTemplate.query(sql.toString(), new Object[] {}, new RowCallbackHandler() {
 			@Override
 			public void processRow(ResultSet rs) throws SQLException {
 				Role role = new Role();
@@ -41,6 +47,16 @@ public class RoleDaoImpl extends BaseDao implements RoleDao {
 			}
 		});
 		return list;
+	}
+
+	@Override
+	public int count(String keyWord) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select count(1) from role where enable = 1 ");
+		if (!StringUtils.isEmpty(keyWord)) {
+			sql.append(" and name like '%" + keyWord + "%' ");
+		}
+		return jdbcTemplate.queryForObject(sql.toString(), Integer.class);
 	}
 
 }
