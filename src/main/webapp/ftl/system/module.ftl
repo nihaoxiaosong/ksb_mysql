@@ -81,6 +81,7 @@
 				</ol>
 			</div>
 			<div class="row">
+				<input type="button" class="btn btn-info" style="margin-bottom:10px;float:left" value=" + 新增" />
 				<table class="table table-hover">
 					<tr>
 						<td><label></label></td>
@@ -90,127 +91,36 @@
 						<td><label>排序</label></td>
 						<td><label>操作</label></td>
 					</tr>
-					<tr class="info">
-						<td></td>
-						<td></td>
-						<td><label>考生管理</label></td>
-						<td></td>
-						<td></td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>ksxx</td>
-						<td>考生信息</td>
-						<td>/ksxx/list</td>
-						<td>1</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr class="info">
-						<td></td>
-						<td></td>
-						<td><label>试题管理<label></td>
-						<td></td>
-						<td></td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>jntgl</td>
-						<td>技能题管理</td>
-						<td>/jntgl/list</td>
-						<td>1</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>lltgl</td>
-						<td>理论题管理</td>
-						<td>/lltgl/list</td>
-						<td>2</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>yxxgl</td>
-						<td>预选项管理</td>
-						<td>/yxxgl/list</td>
-						<td>3</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>stsh</td>
-						<td>试题审核</td>
-						<td>/stsh/list</td>
-						<td>4</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr class="info">
-						<td></td>
-						<td></td>
-						<td><label>试卷管理</label></td>
-						<td></td>
-						<td></td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>jntgl</td>
-						<td>技能卷管理</td>
-						<td>/jntgl/list</td>
-						<td>1</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>lltgl</td>
-						<td>理论卷管理</td>
-						<td>/lltgl/list</td>
-						<td>2</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>stsh</td>
-						<td>试卷审核</td>
-						<td>/stsh/list</td>
-						<td>3</td>
-						<td>
-							<input type="button" class="btn btn-default" value="修改">
-							<input type="button" class="btn btn-warning" value="删除">
-						</td>
-					</tr>
+					
+					<#if  moduleList?? && moduleList?size gt 0>
+						<#list moduleList as module>
+							<#if module.seq==0>
+								<tr class="info">
+									<td></td>
+									<td>${module.code!}</td>
+									<td><label>${module.name!}</label></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							<#else>
+								<tr>
+									<td></td>
+									<td>${module.code!}</td>
+									<td>${module.name!}</td>
+									<td>${module.url!}</td>
+									<td>${module.seq!}</td>
+									<td>
+										<input type="button" class="btn btn-info" value="修改" />
+										<input type="button" name="delete_module" role_id="${module.id!}" class="btn btn-warning" value="删除" />
+									</td>
+								</tr>
+							</#if>
+						</#list>
+					<#else>
+						<tr style="text-align:center;"><td colspan="10" style="padding:20px;">暂无记录!</td></tr>
+					</#if>
+					
 				</table>
 			</div>
 		</div>

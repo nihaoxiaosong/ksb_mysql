@@ -115,7 +115,7 @@
 							</tr>
 						</#list>
 					<#else>
-						<tr style="text-align:center;"><td colspan="10" style="padding:20px;">鏆傛棤璁板綍锛�</td></tr>
+						<tr style="text-align:center;"><td colspan="10" style="padding:20px;">暂无记录!</td></tr>
 					</#if>
 					
 				</table>

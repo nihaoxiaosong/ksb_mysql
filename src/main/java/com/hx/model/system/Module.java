@@ -6,11 +6,29 @@ package com.hx.model.system;
  * @date 2016年6月22日下午8:19:55
  */
 public class Module {
+	/**
+	 * id主键
+	 */
 	private String id;
+	/**
+	 * 编码
+	 */
 	private String code;
+	/**
+	 * 名称
+	 */
 	private String name;
+	/**
+	 * url 地址
+	 */
 	private String url;
+	/**
+	 * 父编码
+	 */
 	private String parentCode;
+	/**
+	 * 排序
+	 */
 	private int seq;
 	
 	public String getId() {
