@@ -11,7 +11,6 @@ $(function() {
 		location.href = "/ksb/role/list";
 	});
 	
-	
 	//删除按钮点击事件
 	$("input[name='delete_role']").click(function() {
 		//摸态框居中
